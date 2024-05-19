@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controller-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controller-app
+  template:
+    metadata:
+      labels:
+        app: controller-app
+    spec:
+      containers:
+      - name: controller-app
+        image: meta-controller-app
+        ports:
+        - containerPort: 8080
